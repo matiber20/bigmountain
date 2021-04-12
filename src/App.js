@@ -1,13 +1,17 @@
+import React from 'react';
 import './App.css';
-import NavMenu from './components/Navbar/Navbar';
+import NavBar from './components/NavBar/NavBar';
 
-function App() {
-  return (
-    <div>
-      <NavMenu />
-      <h1>Esto es la App</h1>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+    return (
+      <div>
+        <NavBar />
+        <h1>Ofertas de la semana</h1>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
