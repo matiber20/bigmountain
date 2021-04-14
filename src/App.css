@@ -1,5 +1,7 @@
 body , html {
   height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 *{
@@ -10,4 +12,8 @@ body , html {
 #root{
   height: 100%;
   font-family: "Roboto";
+}
+
+.container{
+  
 }

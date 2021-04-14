@@ -6,9 +6,10 @@ import Typography from '@material-ui/core/Typography';
 //import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Login from '../Login/Login'
+
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import CartWidget from '../CartWidget/CartWidget'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,7 +56,7 @@ export default function ButtonAppBar() {
 
   return (
     <div>
-      <AppBar position="sticky"
+      <AppBar position="static"
               className={classes.root}>
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
@@ -67,7 +68,6 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <p>Somthing</p>
           </Typography>
-          <Login />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -85,6 +85,7 @@ export default function ButtonAppBar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <MenuIcon />
           </IconButton>
+          <CartWidget />
         </Toolbar>
       </AppBar>
     </div>

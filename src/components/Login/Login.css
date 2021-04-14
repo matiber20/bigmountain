@@ -1,0 +1,21 @@
+.container-form{
+    height: 300px;
+    width: 50%;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.container-form__input{
+    width: 80%;
+    align-self: center;
+}
+
+.container-form__btn{
+    width: 80%;
+    align-self: center;
+}

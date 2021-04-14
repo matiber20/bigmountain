@@ -1,23 +1,15 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import './Login.css'
 
-class Login extends React.Component {
 
-    render() {
+
+export default function Login(props) {
+
         return (
-            <div>
-                <Button 
-                variant="contained"
-                style={{color:"#e3f2fd",
-                backgroundColor:"#5471d2",
-                margin:"15px"}}
-                startIcon={<PermIdentityIcon />}
-                >
-                Login</Button>
-            </div>
+            <form className="container-form">
+                <input onChange={props.change} className="container-form__input" type="text" name="InputEmail" placeholder="Ingresa tu email" autoComplete="true" />
+                <input onChange={props.change} className="container-form__input" type="password" name="InputPassword" placeholder="Ingresa tu password" autoComplete="false" />
+                <button className="container-form__btn" type="submit">Ingresar</button>
+            </form>
         )
-    }
 }
-
-export default Login;
