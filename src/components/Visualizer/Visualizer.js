@@ -1,17 +1,13 @@
 import React from 'react';
-import ItemListContainer from '../../containers/ItemListContainer/ItemListContainer';
 
-function Visualizer() {
+
+export default function Visualizer({email,password}) {
 
         return (
             <div>
-                
-                <ItemListContainer />
-
-                <h1>Tu email es: </h1>
-                <h1>Tu password es: </h1>
+                <h1>Tu email es: {email}</h1>
+                <h1>Tu password es: {password}</h1>
             </div>
         )
 }
 
-export default Visualizer;
