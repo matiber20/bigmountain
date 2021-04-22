@@ -1,60 +1,42 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Counter from '../../components/ItemCount/Counter'
 
-export default class CounterContainer extends Component {
+export default function CounterContainer(props){
+    const [number,setNumber] = useState(0)
+    const [stock,setStock] = useState(10) 
+    const [cart,setCart] = useState(0)
 
-    constructor(props){
-        super(props)
-        this.state = {
-            stock:10,
-            carrito:0
-        }
-
-        this.increment= this.increment.bind(this)
-        this.decrement= this.decrement.bind(this)
-        this.onAdd = this.onAdd.bind(this)
-    }
-
-    increment(){
-        if(this.state.stock > 0){
-            this.setState({stock: this.state.stock-1,
-                carrito: this.state.carrito+1})
+    function increment(){
+        if(stock > 0){
+            setStock(stock-1)
+            setNumber(number+1)
         }
         
     }
 
-    decrement(){
-        if(this.state.carrito > 0){
-            this.setState({stock: this.state.stock+1,
-                        carrito: this.state.carrito-1})
+    function decrement(){
+        if(number > 0){
+            setStock(stock+1)
+            setNumber(number-1)
         }
         
     }
 
-    onAdd(){
-        if(this.state.carrito !== 0){
-            console.log(this.state.carrito);
+    function onAdd(){
+        if(number !== 0){
+            setCart(number)
+            console.log(number);
         }
     }
 
-    componentDidMount(){
-        console.log('llamada a api externa o algo asyncrono')
-    }
-
-    componentDidUpdate(){
-        console.log('Se actualizo');
-    }
-
-
-    render() {
         return (
             <div>
-                <h1>En el carrito: {this.state.carrito}</h1>
-                <h3>Disponible: { this.state.stock}</h3>
+                <h1>En el carrito: {number}</h1>
+                <h3>Disponible: {stock}</h3>
+                <h2>{cart}</h2>
                 {
-                    this.state.stock === 0 && this.state.stock === 11 ? null : <Counter decrement={this.decrement} increment={this.increment} carrito={this.onAdd} />
+                    stock === 0 && stock === 11 ? null : <Counter decrement={decrement} increment={increment} carrito={onAdd} />
                 }
             </div>
         )
     }
-}

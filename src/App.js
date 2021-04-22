@@ -5,7 +5,6 @@ import LoginContainer from './containers/LoginContainer/LoginContainer';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 import CounterContainer from './containers/CounterContainer/CounterContainer';
 
-
 class App extends React.Component {
 
   render(){

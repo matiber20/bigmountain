@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import Saludo from '../../components/Saludos/Saludo'
+import React, { useState,useEffect } from 'react'
+import List from '../../components/ItemList/ItemList'
 
 
-export default class ItemListContainer extends Component {
 
-    
-    handleClick = () => {
-        return alert("Hola!")
-    }
+export default function ItemListContaine() {
+    const [item,setItem] = useState([])
 
-    render() {
+    useEffect(()=>{
+        fetch("https://jsonplaceholder.typicode.com/photos")
+        .then(res => res.json())
+        .then(data => setItem(data))
+    },[])
         return (
             <div>
-                <Saludo saludo={this.handleClick} />
+                <List items={item} />
             </div>
         )
-    }
 }
