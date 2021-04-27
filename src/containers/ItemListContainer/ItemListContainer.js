@@ -1,19 +1,20 @@
 import React, { useState,useEffect } from 'react'
 import List from '../../components/ItemList/ItemList'
 
+const APIURL = "https://jsonplaceholder.typicode.com/photos";
 
-
-export default function ItemListContaine() {
+export default function ItemListContaine({query}) {
     const [item,setItem] = useState([])
 
-    useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/photos")
+    useEffect(function(){
+        fetch(APIURL)
         .then(res => res.json())
-        .then(data => setItem(data))
+        .then(data => setItem(data.slice(0,10)))
+        .catch((err)=>{console.log(err)})
     },[])
         return (
             <div>
-                <List items={item} />
+               <List items={item} />
             </div>
         )
 }
