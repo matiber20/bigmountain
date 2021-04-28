@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import CartWidget from '../../assets/CartWidget/CartWidget'
+import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,20 +53,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles();
+  let history = useHistory()
 
   return (
     <div>
       <AppBar position="static"
               className={classes.root}>
         <Toolbar>
-          <Typography variant="h5" className={classes.title}>
+          <Typography variant="h5" className={classes.title} onClick={()=>{history.push("/")}}>
             MarcaDelNegocio
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            <p>About</p>
+            <p onClick={()=>{history.push("/items")}}>Items</p>
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            <p>Somthing</p>
+            <p onClick={()=>{history.push("/categorias")}}>Categorias</p>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

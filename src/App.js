@@ -5,6 +5,7 @@ import LoginContainer from './containers/LoginContainer/LoginContainer';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 import CounterContainer from './containers/CounterContainer/CounterContainer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
 
 class App extends React.Component {
 
@@ -18,8 +19,11 @@ class App extends React.Component {
           <Route exact path="/">
         <LoginContainer />
         </Route>
-        <Route path="/items">
+        <Route exact path="/items">
         <ItemListContainer />
+        </Route>
+        <Route path="/items/:itemId">
+        <ItemDetailContainer />
         </Route>
         <Route path="/counter">
         <CounterContainer />
