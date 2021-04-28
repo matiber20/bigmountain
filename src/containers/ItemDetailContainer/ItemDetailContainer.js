@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom'
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
 
 const { getItemsById } = require("../../services/services");
 
@@ -15,9 +16,7 @@ export default function ItemDetailContainer() {
     
     return (
         <div>
-            <h3>{item.title}</h3>
-            <img src={item.thumbnailUrl} alt="" />
-            <button>Comprar</button>
+            <ItemDetail item={item} />
         </div>
     )
 }
