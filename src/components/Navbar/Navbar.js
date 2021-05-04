@@ -64,7 +64,7 @@ export default function ButtonAppBar() {
             MarcaDelNegocio
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            <p onClick={()=>{history.push("/items")}}>Items</p>
+            <p onClick={()=>{history.push("/login")}}>Login</p>
           </Typography>
           <Typography variant="h6" className={classes.title}>
             <p onClick={()=>{history.push("/categorias")}}>Categorias</p>

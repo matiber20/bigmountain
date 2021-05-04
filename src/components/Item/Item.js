@@ -8,9 +8,8 @@ export default function Item({item}) {
 
     return (
         <li>
-            <h3>{item.title}</h3>
-            <img src={item.thumbnailUrl} alt="" />
-            <Link to={`items/${item.id}`}><button>Detalle</button></Link>
+            <h3>{item.name}</h3>
+            <Link to={`books/${item.id}`}><button>Detalle</button></Link>
         </li>
     )
 }

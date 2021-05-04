@@ -6,6 +6,8 @@ export default function CounterContainer(props){
     const [stock,setStock] = useState(10) 
     const [cart,setCart] = useState(0)
 
+  
+
     function increment(){
         if(stock > 0){
             setStock(stock-1)
@@ -25,7 +27,8 @@ export default function CounterContainer(props){
     function onAdd(){
         if(number !== 0){
             setCart(number)
-            console.log(number);
+        }else{
+            setCart(0)
         }
     }
 
@@ -35,7 +38,7 @@ export default function CounterContainer(props){
                 <h3>Disponible: {stock}</h3>
                 <h2>{cart}</h2>
                 {
-                    stock === 0 && stock === 11 ? null : <Counter decrement={decrement} increment={increment} carrito={onAdd} />
+                    stock === 0 && stock === 11 && cart !== 0 ? <Counter carrito={onAdd} /> : <Counter decrement={decrement} increment={increment} carrito={onAdd} />
                 }
             </div>
         )

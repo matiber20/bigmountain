@@ -1,6 +1,6 @@
 function getItems(){
     return new Promise((resolve,reject)=>{
-        fetch("https://jsonplaceholder.typicode.com/photos")
+        fetch("https://jsonplaceholder.typicode.com/users")
         .then(res => res.json())
         .then(data=> resolve(data))
         .catch(err=>reject(err))
@@ -8,7 +8,7 @@ function getItems(){
 
 function getItemsById(itemId){
         return new Promise((resolve,reject) => {
-            fetch(`https://jsonplaceholder.typicode.com/photos/${itemId}`)
+            fetch(`https://jsonplaceholder.typicode.com/users/${itemId}`)
             .then(res=>res.json())
             .then(data=>resolve(data))
             .catch(err=>reject(err))

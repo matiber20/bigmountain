@@ -1,14 +1,12 @@
 import React, { useState,useEffect } from 'react'
 import List from '../../components/ItemList/ItemList'
 
-const APIURL = "https://jsonplaceholder.typicode.com/photos";
-
-export default function ItemListContaine({query}) {
+const {getItems} =require('../../services/services')
+export default function ItemListContainer() {
     const [item,setItem] = useState([])
 
     useEffect(function(){
-        fetch(APIURL)
-        .then(res => res.json())
+       getItems()
         .then(data => setItem(data.slice(0,10)))
         .catch((err)=>{console.log(err)})
     },[])

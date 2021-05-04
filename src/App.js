@@ -3,37 +3,36 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import LoginContainer from './containers/LoginContainer/LoginContainer';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
-import CounterContainer from './containers/CounterContainer/CounterContainer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
+import CategoriasContainer from './containers/CategoriasContainer/CategoriasContainer'
+import { Appcontext } from './context/cartContext';
 
 class App extends React.Component {
 
   render(){
     return (
+      <Appcontext.Provider value={[]}>
       <Router>
       <div className="container">
         <NavBar />
-        <h1>Ofertas de la semana</h1>
         <Switch>
-          <Route exact path="/">
-        <LoginContainer />
+        <Route exact path="/">
+          <ItemListContainer />
         </Route>
-        <Route exact path="/items">
-        <ItemListContainer />
-        </Route>
-        <Route path="/items/:itemId">
+        <Route path="/books/:itemId">
         <ItemDetailContainer />
         </Route>
-        <Route path="/counter">
-        <CounterContainer />
+        <Route path="/login">
+        <LoginContainer />
         </Route>
-        
-        </Switch>
-        
-        
+        <Route exact path="/categorias">
+          <CategoriasContainer />
+        </Route>
+        </Switch> 
       </div>
       </Router>
+      </Appcontext.Provider>
     );
   }
   
