@@ -37,9 +37,7 @@ export default function CounterContainer(props){
                 <h1>En el carrito: {number}</h1>
                 <h3>Disponible: {stock}</h3>
                 <h2>{cart}</h2>
-                {
-                    stock === 0 && stock === 11 && cart !== 0 ? <Counter carrito={onAdd} /> : <Counter decrement={decrement} increment={increment} carrito={onAdd} />
-                }
+                <Counter decrement={decrement} increment={increment} carrito={onAdd} cart={cart}/>
             </div>
         )
     }
