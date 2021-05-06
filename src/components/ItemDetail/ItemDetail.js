@@ -7,7 +7,6 @@ export default function ItemDetail({item}) {
 
     return (
         <div>
-            {console.log(item)}
             <h1>Nombre: {item.name}</h1>
             <p>Telelfono: {item.phone}</p>
             <p>Usename: {item.username}</p>

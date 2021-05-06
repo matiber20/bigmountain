@@ -5,8 +5,7 @@ export default function CategoriasList({items,itemDireccion}) {
 
     return (
         <ul>
-           {console.log(items.id,itemDireccion.street)}
-           <CategoriaItem key={items.id} direccion={itemDireccion}/>
+           <CategoriaItem key={items.id} item={items} direccion={itemDireccion}/>
        </ul>
     )
 }

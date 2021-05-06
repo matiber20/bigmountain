@@ -1,6 +1,6 @@
 import React, {useState,useEffect,useContext} from 'react'
 import CategoriasList from '../../components/CategoriasList/CategoriasList'
-import { Appcontext } from '../../context/cartContext';
+import { Appcontext } from '../../context/AppContext';
 
 
 const { getItems } = require('../../services/services')
@@ -17,7 +17,6 @@ export default function CategoriasContainer() {
     },[])
     return (
         <div>
-            {console.log(name)}
             {item && item.map((data)=>(<CategoriasList itemDireccion={data.address} items={data}  />))}
         </div>
     )

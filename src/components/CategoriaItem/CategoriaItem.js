@@ -1,12 +1,11 @@
 import React from 'react'
-import Counter from '../ItemCount/Counter'
-// import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
-export default function CategoriaItem({direccion}) {
+export default function CategoriaItem({direccion,item}) {
     return (
         <li>
             Street: {direccion.street}, City: {direccion.city}
-            <Counter />
+            <Link to={`books/${item.id}`}><button>Detalle</button></Link>
         </li>
     )
 }

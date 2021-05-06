@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function Counter({decrement,increment,carrito,cart}) {
     
@@ -6,7 +7,7 @@ export default function Counter({decrement,increment,carrito,cart}) {
         <div>
         {
         cart !== 0 ? 
-            <button onClick={carrito}>Terminar compra</button> 
+            <Link to="/cart"><button onClick={carrito}>Terminar compra</button></Link> 
             :
               <>
               <button onClick={carrito}>Agregar</button>
