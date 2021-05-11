@@ -6,23 +6,28 @@ import ItemListContainer from '../../containers/ItemListContainer/ItemListContai
 import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer';
 import CategoriasContainer from '../../containers/CategoriasContainer/CategoriasContainer'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-// import {useContext} from 'react'
-// import { Appcontext } from '../../context/AppContext';
+import CarritoContainer from '../CarritoContainer/CarritoContainer'
+import {useContext} from 'react'
+import { Appcontext } from '../../context/AppContext';
  
 export default function AppRouter() {
 
     // PARA SETEAR EL AUTH DEL USUARIO
 
-    // const {user} = useContext(Appcontext)
+     const {user} = useContext(Appcontext)
 
 
     return (
         <Router>
             <div className="container">
-        <NavBar />
+            {
+            user && <NavBar />
+            }
         <Switch>
         <Route exact path="/">
-          <ItemListContainer />
+          {
+            user ? <ItemListContainer /> : <LoginContainer />
+          }
         </Route>
         <Route path="/books/:itemId">
         <ItemDetailContainer />
@@ -32,6 +37,9 @@ export default function AppRouter() {
         </Route>
         <Route exact path="/categorias">
           <CategoriasContainer />
+        </Route>
+        <Route exact path="/cart">
+          <CarritoContainer />
         </Route>
         </Switch> 
       </div>

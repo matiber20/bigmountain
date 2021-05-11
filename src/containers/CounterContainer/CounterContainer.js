@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Counter from '../../components/ItemCount/Counter'
+import { useContext } from 'react'
+import AppContext from '../../context/AppContext'
 
 export default function CounterContainer(props){
-    const [number,setNumber] = useState(0)
-    const [stock,setStock] = useState(10) 
-    const [cart,setCart] = useState(0)
 
-  
+    const {stock,setStock,number,setNumber,cart,setCart} = useContext(AppContext)
 
     function increment(){
         if(stock > 0){

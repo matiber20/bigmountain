@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Login from '../../components/Login/Login'
 import Visualizer from '../../components/Visualizer/Visualizer'
 
-
 export default class LoginContainer extends Component {
 
     constructor(props){
