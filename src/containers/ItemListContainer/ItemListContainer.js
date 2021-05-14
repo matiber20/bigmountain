@@ -1,22 +1,22 @@
-import React, { useState,useEffect,useContext } from 'react'
-import List from '../../components/ItemList/ItemList'
-import AppContext from '../../context/AppContext'
-
+import React, { useEffect,useContext } from 'react'
+// import List from '../../components/ItemList/ItemList'
+import { AppContext } from '../../context/AppContext'
 
 const {getItems} =require('../../services/services')
+
 export default function ItemListContainer() {
     const {item,setItem} = useContext(AppContext)
-    // const [item,setItem] = useState([])
 
     useEffect(function(){
        getItems()
-        .then(data => setItem(data.slice(0,10)))
+        .then(data => setItem(data))
         .catch((err)=>{console.log(err)})
-    },[])
+    },[setItem])
 
         return (
             <div>
-               <List items={item} />
+              {/* {item && <List items={item} />}  */}
+            {console.log(item)}
             </div>
         )
 }

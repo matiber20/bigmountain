@@ -1,22 +1,21 @@
-function getItems(){
-    return new Promise((resolve,reject)=>{
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then(res => res.json())
-        .then(data=> resolve(data))
-        .catch(err=>reject(err))
-    })}
+import db from '../firebase/index'
 
-function getItemsById(itemId){
+const itemsCollection = db.collection('items')
+const categoriasCollection = db.collection('categorias')
+
+export function getItems(){
+    return itemsCollection.get()
+        .then(snapshot => {
+            return snapshot.docs.map(doc => doc.data())
+        })
+    }
+
+export function getItemsById(itemId){
         return new Promise((resolve,reject) => {
             fetch(`https://jsonplaceholder.typicode.com/users/${itemId}`)
             .then(res=>res.json())
             .then(data=>resolve(data))
             .catch(err=>reject(err))
         })}
-    
-    module.exports = {
-        getItems,
-        getItemsById,
-    }    
-        
+
     

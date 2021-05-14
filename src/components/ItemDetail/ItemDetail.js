@@ -7,12 +7,12 @@ export default function ItemDetail({item}) {
 
     return (
         <div>
-            <h1>Nombre: {item.name}</h1>
-            <p>Telelfono: {item.phone}</p>
-            <p>Usename: {item.username}</p>
-            <p>Email: {item.email}</p>
-            <p>Website: {item.website}</p>
-            <CounterContainer />
+            <h1>Nombre: {item.title}</h1>
+            <p>Telelfono: {item.categoryId}</p>
+            <p>Usename: {item.stock}</p>
+            <p>Email: {item.price}</p>
+            <p>Website: {item.description}</p>
+            <CounterContainer item={item} />
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Login from '../../components/Login/Login'
-import Visualizer from '../../components/Visualizer/Visualizer'
 
 export default class LoginContainer extends Component {
 
@@ -12,6 +11,7 @@ export default class LoginContainer extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
@@ -19,14 +19,14 @@ export default class LoginContainer extends Component {
     }
 
     handleSubmit(event){
-        //Datos del submit
+        //evento para el submit
+        this.setState({[event.target.name]: event.target.value})
     }
 
     render() {
         return (
             <div>
                 <Login change={this.handleChange} submit={this.handleSubmit} />
-                <Visualizer email={this.state.InputEmail} password={this.state.InputPassword} />
             </div>
         )
     }

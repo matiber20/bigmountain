@@ -8,35 +8,35 @@ import CategoriasContainer from '../../containers/CategoriasContainer/Categorias
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import CarritoContainer from '../CarritoContainer/CarritoContainer'
 import {useContext} from 'react'
-import { Appcontext } from '../../context/AppContext';
+import { AppContext } from '../../context/AppContext';
  
 export default function AppRouter() {
 
     // PARA SETEAR EL AUTH DEL USUARIO
 
-     const {user} = useContext(Appcontext)
+     const {user} = useContext(AppContext)
 
 
     return (
         <Router>
             <div className="container">
-            {
-            user && <NavBar />
-            }
+            <NavBar />
         <Switch>
         <Route exact path="/">
           {
-            user ? <ItemListContainer /> : <LoginContainer />
+            user ? <ItemListContainer /> :  <LoginContainer />
           }
+        </Route>
+        <Route path="/login">
+            <LoginContainer />
         </Route>
         <Route path="/books/:itemId">
         <ItemDetailContainer />
         </Route>
-        <Route path="/login">
-        <LoginContainer />
-        </Route>
         <Route exact path="/categorias">
-          <CategoriasContainer />
+          {
+            user ? <CategoriasContainer /> : <LoginContainer />
+          }
         </Route>
         <Route exact path="/cart">
           <CarritoContainer />

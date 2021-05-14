@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,6 +10,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import CartWidget from '../../assets/CartWidget/CartWidget'
 import {useHistory} from 'react-router-dom'
+import { AppContext } from '../../context/AppContext';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
   let history = useHistory()
+  const {user} = useContext(AppContext)
 
   return (
     <div>
@@ -63,9 +66,12 @@ export default function ButtonAppBar() {
           <Typography variant="h5" className={classes.title} onClick={()=>{history.push("/")}}>
             MarcaDelNegocio
           </Typography>
-          <Typography variant="h6" className={classes.title}>
+          {
+            user ? null : <Typography variant="h6" className={classes.title}>
             <p onClick={()=>{history.push("/login")}}>Login</p>
           </Typography>
+          }
+          
           <Typography variant="h6" className={classes.title}>
             <p onClick={()=>{history.push("/categorias")}}>Categorias</p>
           </Typography>
