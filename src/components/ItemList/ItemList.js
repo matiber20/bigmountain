@@ -6,7 +6,7 @@ export default function List({items}) {
     
     return (
        <ul>
-           {console.log("la data "+data)}
+           {console.log(data)}
            {data && data.map((data)=>(<Item key={data.id} item={data} />))}
        </ul>
     )

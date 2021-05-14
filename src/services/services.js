@@ -1,7 +1,8 @@
 import db from '../firebase/index'
 
-const itemsCollection = db.collection('items')
-const categoriasCollection = db.collection('categorias')
+const itemsCollection = db.collection('items');
+
+// const categoriasCollection = db.collection('categorias');
 
 export function getItems(){
     return itemsCollection.get()

@@ -8,7 +8,7 @@ export default function AppContextProvider({children}) {
     const [item,setItem] = useState([])
     const [inCart,setInCart] = useState([])
     const [number,setNumber] = useState(0)
-    const [stock,setStock] = useState(10) 
+    const [stock,setStock] = useState(0) 
     const [cart,setCart] = useState(false)
 
     function increment(){
@@ -29,6 +29,7 @@ export default function AppContextProvider({children}) {
     function onAdd(item){
         if(number !== 0){
             setCart(true)
+            setNumber(number)
             setInCart(...inCart, item)            
         }else{
             setCart(false)
