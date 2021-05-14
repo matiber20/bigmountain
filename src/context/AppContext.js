@@ -29,7 +29,7 @@ export default function AppContextProvider({children}) {
     function onAdd(item){
         if(number !== 0){
             setCart(true)
-            setInCart(item)            
+            setInCart(...inCart, item)            
         }else{
             setCart(false)
         }
