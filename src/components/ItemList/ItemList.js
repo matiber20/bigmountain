@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Item from '../Item/Item'
 
-export default function List({items}) {
-    const data = items && items.map((data)=>(data))
+export default function List({items,id}) {
     
     return (
        <ul>
-           {console.log(data)}
-           {data && data.map((data)=>(<Item key={data.id} item={data} />))}
+           <Item key={id} item={items} />
        </ul>
     )
 }

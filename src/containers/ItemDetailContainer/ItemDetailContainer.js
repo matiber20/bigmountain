@@ -1,7 +1,7 @@
 import React, {useEffect, useContext} from 'react'
 import {useParams} from 'react-router-dom'
-import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import { AppContext } from '../../context/AppContext';
+import ItemDetail from '../../components/ItemDetail/ItemDetail'
 
 const { getItemsById } = require("../../services/services");
 
@@ -17,7 +17,7 @@ export default function ItemDetailContainer() {
     
     return (
         <div>
-            {item && <ItemDetail item={item} />}  
+            {item.map((data)=>(itemId===data.id ? <ItemDetail itemDet={data} /> :null))}
         </div>
     )
 }

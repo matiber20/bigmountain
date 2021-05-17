@@ -3,16 +3,16 @@ import CounterContainer from '../../containers/CounterContainer/CounterContainer
 
 
 
-export default function ItemDetail({item}) {
+export default function ItemDetail({itemDet}) {
 
     return (
         <div>
-            <h1>Nombre: {item.title}</h1>
-            <p>Telelfono: {item.categoryId}</p>
-            <p>Usename: {item.stock}</p>
-            <p>Email: {item.price}</p>
-            <p>Website: {item.description}</p>
-            <CounterContainer item={item} />
+            <h1>Titulo: {itemDet.title}</h1>
+            <p>Categoria: {itemDet.categoryId}</p>
+            <p>Stock: {itemDet.stock}</p>
+            <p>Precio: {itemDet.price}</p>
+            <p>Descripcion: {itemDet.description}</p>
+            <CounterContainer item={itemDet} />
         </div>
     )
 }
