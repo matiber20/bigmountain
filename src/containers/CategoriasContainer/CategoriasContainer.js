@@ -17,7 +17,7 @@ export default function CategoriasContainer() {
     
     return (
         <div>
-            {item && item.map((data)=>(<CategoriasList itemDireccion={data.address} items={data}  />))}
+            {item && item.map((data)=>(<CategoriasList itemDireccion={data.desciption} items={data}  />))}
         </div>
     )
 }

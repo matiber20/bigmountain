@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react'
 import AppContext from '../../context/AppContext'
 
 export default function CarritoContainer() {
 
-    const {inCart,number} = useContext(AppContext)
+    const [quantity,setQuantity] = useState(0)
     
+
 
     return (
         <div>
-            {inCart.map((data)=>(console.log(data)))}
-            {console.log(number)}
+            {/* {inCart.map((data)=>(console.log(data)))} */}
+            {/* {console.log()} */}
+            {console.log(quantity)}
         </div>
     )
 }
