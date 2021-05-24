@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
 
-export default function Counter({increment,decrement,addToCart}) {
+export default function Counter({increment,decrement,addToCart,item,number}) {
 
     const {cart,onAdd} = useContext(AppContext)
 
@@ -10,12 +10,12 @@ export default function Counter({increment,decrement,addToCart}) {
         <div>
         {
         cart !== false ? 
-            <Link to="/cart"><button onClick={addToCart}>Terminar compra</button></Link> 
+            <Link to="/cart"><button quantity={number} name={item.id} onClick={addToCart}>Terminar compra</button></Link> 
             :
               <>
-              <button onClick={onAdd}>Agregar</button>
-              <button onClick={increment}>+</button>
-              <button onClick={decrement}>-</button>
+              <button onClick={onAdd} quantity={number} name={item.id} >Agregar</button>
+              <button onClick={increment} quantity={number} >+</button>
+              <button onClick={decrement} quantity={number} >-</button>
               </>
         }    
         </div>

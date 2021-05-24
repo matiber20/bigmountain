@@ -9,7 +9,6 @@ export default function ItemDetail({itemDet}) {
         <div>
             <h1>Titulo: {itemDet.title}</h1>
             <p>Categoria: {itemDet.categoryId}</p>
-            <p>Stock: {itemDet.stock}</p>
             <p>Precio: {itemDet.price}</p>
             <p>Descripcion: {itemDet.description}</p>
             <CounterContainer item={itemDet} />

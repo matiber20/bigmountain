@@ -1,7 +1,8 @@
 import db from '../firebase/index'
 
 const itemsCollection = db.collection('items');
-// const usuariosCollection = db.collection('usuarios')
+
+const ordersCollection = db.collection('orders')
 
 // const categoriasCollection = db.collection('categorias');
 
@@ -18,4 +19,18 @@ export function getItemsById(){
     return itemsCollection.get()
     .then(snapshot => {
         return snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))})
+}
+
+export function getOrders(){
+    return ordersCollection.get()
+    .then(snapshot => {
+        return snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))})
+}
+
+export function creatOrder(order){
+    ordersCollection.add(order)
+}
+
+export function purchase(){
+    //BORRAR COLLECCION ORDERS DE FIREBASE
 }

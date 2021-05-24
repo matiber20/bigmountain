@@ -13,11 +13,12 @@ export default function ItemDetailContainer() {
         getItemsById(itemId)
         .then(data=> setItem(data))
         .catch(err=>console.log(err))
-    },[itemId])
+    },[setItem,itemId])
+
     
     return (
         <div>
-            {item.map((data)=>(itemId===data.id ? <ItemDetail itemDet={data} /> :null))}
+            {item.map((data)=>(itemId===data.id ? <ItemDetail key={data.id} itemDet={data} /> :null))}
         </div>
     )
 }

@@ -8,13 +8,14 @@ export default function AppContextProvider({children}) {
     const [item,setItem] = useState([])
     const [inCart,setInCart] = useState([])
     const [cart,setCart] = useState(false)
+    const [quantity,setQuantity] = useState(0)
+    const [total,setTotal] = useState(0)
     
-    function onAdd(){
-        return    setCart(true)
-            // setInCart(...inCart, item)        
-        // }else{
-        //     setCart(false)
-        }
+    function onAdd(e){
+        setCart(true)
+        setInCart(...inCart,e.target.attributes.name.value)
+        setQuantity(e.target.attributes.quantity.value)
+    }
 
 
     return (
@@ -28,7 +29,10 @@ export default function AppContextProvider({children}) {
                     setCart,
                     setInCart,
                     inCart,
-                    onAdd    }
+                    onAdd,
+                    quantity,
+                    setTotal,
+                    total    }
                   }>
                       {children}
         </AppContext.Provider>

@@ -1,11 +1,11 @@
 import React from 'react'
 import Item from '../Item/Item'
 
-export default function List({items,id}) {
+export default function List({items}) {
     
     return (
        <ul>
-           <Item llave={id} item={items} />
+           <Item item={items} />
        </ul>
     )
 }

@@ -11,11 +11,14 @@ export default function ItemListContainer() {
        getItems()
         .then(data => setItem(data))
         .catch((err)=>{console.log(err)})
-    },[item])
+        return ()=>{
+            getItems()
+        }
+    },[setItem])
 
         return (
             <div>
-              {item && item.map((data)=>(<List items={data} id={data.id} />))}
+              {item && item.map((data)=>(<List items={data} key={data.id} />))}
             </div>
         )
 }

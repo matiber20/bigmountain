@@ -1,52 +1,51 @@
-import React, { useState } from 'react'
-// import Display from '../../components/Display/Display'
+import React, { useContext, useState } from 'react'
+import Display from '../../components/Display/Display'
 import Counter from '../../components/ItemCount/Counter'
-// import { useContext } from 'react'
-// import AppContext from '../../context/AppContext'
+import { AppContext } from '../../context/AppContext'
 
+const {creatOrder} = require('../../services/services')
 
 export default function CounterContainer({item}){
 
-    // const {inCart} = useContext(AppContext)
+    const {inCart,quantity,setCart,setTotal} = useContext(AppContext)
 
     const [number,setNumber] = useState(0)
     const [stock,setStock] = useState(item.stock)
-    const [inCart,setInCart] = useState([])
 
-    function increment(){
+
+    function increment(e){
         if(stock > 0){
             setStock(stock-1)
             setNumber(number+1)
-        }
-    }
-
-    function decrement(){
-        if(number > 0){
-            setStock(stock+1)
-            setNumber(number-1)
+            partialTotal(number+1,item.price)
         }
         
     }
 
-    function addToCart(){
-        if(number !== 0 && number > 0){
-            setStock(stock)
-            setNumber(number)
-            // setCart(true)
-            setInCart(...inCart, item)        
-        // }else{
-        //     setCart(false)
+    function decrement(e){
+        if(number > 0){
+            setStock(stock+1)
+            setNumber(number-1)
+            partialTotal(number-1,item.price)
         }
+        
     }
 
-    // function addToCart(){
-    //     return setInCart(item,number)
-    // }
+    function partialTotal(a,b){
+        const suma = a*b
+        setTotal(suma)    
+    }   
+
+    function addToCart(){
+        creatOrder({item:{id: inCart, quantity: quantity,price: item.price,...item},buyer:{userId:"Usuario", email: "email@email.com"},total: item.price*quantity})
+        setCart(false)
+    }
+
 
            return (
             <div>
-                {/* <Display item={item} cantidad={item.stock}/> */}
-                <Counter item={item} increment={increment} decrement={decrement} addToCart={addToCart} />
+                <Display item={item} stock={stock} number={number}  />
+                <Counter number={number} item={item} increment={increment} decrement={decrement} addToCart={addToCart} />
             </div> 
         )
     }
