@@ -13,6 +13,9 @@ export default function ItemDetailContainer() {
         getItemsById(itemId)
         .then(data=> setItem(data))
         .catch(err=>console.log(err))
+        return()=>{
+            getItemsById()
+        }
     },[setItem,itemId])
 
     

@@ -44,7 +44,7 @@ export default function CounterContainer({item}){
 
            return (
             <div>
-                <Display item={item} stock={stock} number={number}  />
+                <Display item={item} stock={item.stock} number={number}  />
                 <Counter number={number} item={item} increment={increment} decrement={decrement} addToCart={addToCart} />
             </div> 
         )

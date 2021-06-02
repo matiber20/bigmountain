@@ -31,6 +31,12 @@ export function creatOrder(order){
     ordersCollection.add(order)
 }
 
+export function deleteOrder(){
+    //BORRAR ORDEN USANDO EL ID DEL DOC DE LA COLLECCION
+    //SERIA EL EDITAR, BOTON EDITAR LISTA
+}
+
+
 export function purchase(){
     //BORRAR COLLECCION ORDERS DE FIREBASE
 }

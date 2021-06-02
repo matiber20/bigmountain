@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CartList from '../../components/CartList/CartList'
+import { AppContext } from '../../context/AppContext'
+
 
 
 const { getOrders , purchase } = require('../../services/services')
@@ -7,17 +9,14 @@ const { getOrders , purchase } = require('../../services/services')
 export default function CarritoContainer() {
 
     const [cart,setCart] = useState([])
-    const [total,setTotal] = useState(0)
+    const {setStock,total,setTotal,setPagarCarrito} = useContext(AppContext)
     
     useEffect(function(){
         getOrders()
          .then(function(data){
-             setCart(data)
+            setCart(data)
             handleLoad(data)})
          .catch((err)=>{console.log(err)})
-         return ()=>{
-             getOrders()
-         }
      },[])
 
     function handleLoad(e){
@@ -28,7 +27,9 @@ export default function CarritoContainer() {
         const element = lista[index];  
         totalPagar += element
         setTotal(totalPagar)
+        setStock(lista.length)
     }
+    setPagarCarrito(totalPagar)
     }
 
     function handleClick(){
