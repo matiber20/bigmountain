@@ -64,7 +64,7 @@ export default function ButtonAppBar() {
               className={classes.root}>
         <Toolbar>
           <Typography variant="h5" className={classes.title} onClick={()=>{history.push("/")}}>
-            MarcaDelNegocio
+            Big Mountain Books
           </Typography>
           {
             user ? null : <Typography variant="h6" className={classes.title}>

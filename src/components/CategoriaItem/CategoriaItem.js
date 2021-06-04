@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-export default function CategoriaItem({direccion,item}) {
+export default function CategoriaItem({item}) {
     return (
         <li>
-            Street: {direccion.street}, City: {direccion.city}
+            {item.categoryId}
             <Link to={`books/${item.id}`}><button>Detalle</button></Link>
         </li>
     )

@@ -1,11 +1,11 @@
 import React from 'react'
 import CategoriaItem from '../CategoriaItem/CategoriaItem'
-export default function CategoriasList({items,itemDireccion}) {
+export default function CategoriasList({items}) {
 
 
     return (
         <ul>
-           <CategoriaItem key={items.id} item={items} direccion={itemDireccion}/>
+           <CategoriaItem item={items} />
        </ul>
     )
 }

@@ -4,16 +4,13 @@ const itemsCollection = db.collection('items');
 
 const ordersCollection = db.collection('orders')
 
-// const categoriasCollection = db.collection('categorias');
-
-export function getItems(){
-    return itemsCollection.get()
-        .then(snapshot => {
-            return snapshot.docs.map(doc => {
+export async function getItems(){
+    const docRef = await itemsCollection.get()
+     const items = docRef.docs.map(doc => {
                 return {id: doc.id,...doc.data()}
             })
-        })
-    }
+            return items;
+        }
 
 export function getItemsById(){
     return itemsCollection.get()
@@ -31,12 +28,33 @@ export function creatOrder(order){
     ordersCollection.add(order)
 }
 
-export function deleteOrder(){
+export function deleteOrder(id){
+    ordersCollection.doc(id).delete().then(() => {
+        console.log("Document successfully deleted!");
+    }).catch((error) => {
+        console.error("Error removing document: ", error);
+    });
+    
     //BORRAR ORDEN USANDO EL ID DEL DOC DE LA COLLECCION
     //SERIA EL EDITAR, BOTON EDITAR LISTA
 }
 
+// export async function update(data) {
+//     ordersCollection.doc(data.id).set(data)
+//     .then(() => {
+//         console.log("Document successfully written!");
+//     })
+//     .catch((error) => {
+//         console.error("Error writing document: ", error);
+//     });
+// }
 
-export function purchase(){
+export async function purchase(){
     //BORRAR COLLECCION ORDERS DE FIREBASE
+    const docRef = await ordersCollection
+
+    return docRef.get()
+    .then(snapshot => {
+        return snapshot.docs.map((doc) => (deleteOrder(doc.id)))})
+    
 }

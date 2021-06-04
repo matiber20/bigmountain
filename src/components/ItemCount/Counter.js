@@ -10,7 +10,7 @@ export default function Counter({increment,decrement,addToCart,item,number}) {
         <div>
         {
         cart !== false ? 
-            <Link to="/cart"><button quantity={number} name={item.id} onClick={addToCart}>Terminar compra</button></Link> 
+            <Link to="/cart"><button quantity={number} name={item.id} onClick={addToCart}>Agregar al carrito</button></Link> 
             :
               <>
               <button onClick={onAdd} quantity={number} name={item.id} >Agregar</button>

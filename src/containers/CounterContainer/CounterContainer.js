@@ -13,7 +13,7 @@ export default function CounterContainer({item}){
     const [stock,setStock] = useState(item.stock)
 
 
-    function increment(e){
+    function increment(){
         if(stock > 0){
             setStock(stock-1)
             setNumber(number+1)
@@ -22,7 +22,7 @@ export default function CounterContainer({item}){
         
     }
 
-    function decrement(e){
+    function decrement(){
         if(number > 0){
             setStock(stock+1)
             setNumber(number-1)

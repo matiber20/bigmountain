@@ -13,11 +13,15 @@ export default function CategoriasContainer() {
         getItems()
         .then(data=>setItem(data))
         .catch(err=>console.log(err))
+        return()=>{
+            getItems()
+        }
     },[])
     
     return (
         <div>
-            {item && item.map((data)=>(<CategoriasList itemDireccion={data.desciption} items={data}  />))}
+            <h3>Categorias</h3>
+            {item && item.map((data)=>(<CategoriasList key={data.id} items={data} />))}
         </div>
     )
 }

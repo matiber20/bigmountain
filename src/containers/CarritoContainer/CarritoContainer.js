@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import CartList from '../../components/CartList/CartList'
 import { AppContext } from '../../context/AppContext'
-
+import { useHistory } from 'react-router-dom'
 
 
 const { getOrders , purchase } = require('../../services/services')
@@ -10,6 +10,7 @@ export default function CarritoContainer() {
 
     const [cart,setCart] = useState([])
     const {setStock,total,setTotal,setPagarCarrito} = useContext(AppContext)
+    let history = useHistory()
     
     useEffect(function(){
         getOrders()
@@ -34,12 +35,13 @@ export default function CarritoContainer() {
 
     function handleClick(){
         purchase()
+        history.push("/")
     }
 
     return (
         <div>
-            {cart && cart.map((data)=>(<CartList data={data} />))}
-            <button onClick={handleClick} onLoad={handleLoad}>Finalizar compra ${total}</button>
+            {cart && cart.map((data)=>(<CartList data={data} key={data.id}/>))}
+            {total===0?<p>No hay items en el carrito</p>:<button onClick={handleClick} onLoad={handleLoad}>Finalizar compra ${total}</button>}
         </div>
     )
 }

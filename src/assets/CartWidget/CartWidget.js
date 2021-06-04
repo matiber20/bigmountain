@@ -12,8 +12,8 @@ export default function CartWidget() {
     return (
         <div onClick={()=>history.push("/cart")}>
           <ShoppingCartOutlinedIcon />
-          {stock}
-          <p>${pagarCarrito}</p>
+          {stock===0?null:stock}
+          <p>{pagarCarrito===0?null:"$"+pagarCarrito}</p>
         </div>
     )
 }
