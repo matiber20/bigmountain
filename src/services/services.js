@@ -31,6 +31,7 @@ export function creatOrder(order){
 export function deleteOrder(id){
     ordersCollection.doc(id).delete().then(() => {
         console.log("Document successfully deleted!");
+        window.location.reload(false);
     }).catch((error) => {
         console.error("Error removing document: ", error);
     });
