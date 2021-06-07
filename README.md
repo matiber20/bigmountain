@@ -1,6 +1,6 @@
 E-commerce BigMountain
 
-Articulos de escalada, trekking, etc
+Libros
 
 Home con login y autorizacion de usuario para poder ver items
 Items donde puedo ver todos los items
