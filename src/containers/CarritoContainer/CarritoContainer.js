@@ -18,7 +18,7 @@ export default function CarritoContainer() {
             setCart(data)
             handleLoad(data)})
          .catch((err)=>{console.log(err)})
-     },[setCart])
+     },[])
 
     function handleLoad(e){
     const lista = []

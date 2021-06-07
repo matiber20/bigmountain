@@ -19,6 +19,7 @@ export default function AppContextProvider({children}) {
         setCart(true)
         setInCart(...inCart,e.target.attributes.name.value)
         setQuantity(e.target.attributes.quantity.value)
+        e.preventDefault()
     }
 
 

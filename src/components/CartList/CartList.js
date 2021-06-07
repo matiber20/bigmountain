@@ -7,7 +7,7 @@ export default function CartList({data}) {
 
     return (
         <ul>
-            <CartItems total={total} data={data} />
+            <CartItems parcial={total} data={data} />
         </ul>   
     )
 }

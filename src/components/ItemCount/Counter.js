@@ -11,7 +11,6 @@ export default function Counter({increment,decrement,addToCart,item,number}) {
     return (
         <div>
         {
-            //IGUAL QUE INPUT PASANDO LOS PARAMETROS
         cart !== false &&  inCart !==item.id ? 
             <>
             <Link to="/cart"><button quantity={number} controlstock={controlStock(number,item.id,item)} name={item.id} onClick={addToCart}>Terminar compra</button></Link> 

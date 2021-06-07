@@ -9,8 +9,8 @@ export default function CounterContainer({item}){
 
     const {inCart,quantity,setCart,setTotal} = useContext(AppContext)
 
-    const [number,setNumber] = useState(0)
-    const [stock,setStock] = useState(item.stock)
+    const [number,setNumber] = useState(0);
+    const [stock,setStock] = useState(item.stock);
 
 
     function increment(){
