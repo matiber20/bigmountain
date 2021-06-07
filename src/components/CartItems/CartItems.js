@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function CartItems({data,total}) {
     return (
         <li>

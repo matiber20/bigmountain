@@ -1,5 +1,6 @@
 import db from '../firebase/index'
 
+
 const itemsCollection = db.collection('items');
 
 const ordersCollection = db.collection('orders')
@@ -40,15 +41,42 @@ export function deleteOrder(id){
     //SERIA EL EDITAR, BOTON EDITAR LISTA
 }
 
-// export async function update(data) {
-//     ordersCollection.doc(data.id).set(data)
-//     .then(() => {
-//         console.log("Document successfully written!");
-//     })
-//     .catch((error) => {
-//         console.error("Error writing document: ", error);
-//     });
-// }
+export async function controlStock(data,id,item) {
+    itemsCollection.doc(id).set({
+        categoryId: item.categoryId,
+        description: item.description,
+        image: item.image,
+        price: item.price,
+        stock: item.stock - data,
+        title: item.title
+    })
+    .then(() => {
+        console.log("Document successfully written!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+
+export async function cancel(data,id,item,cart) {
+    itemsCollection.doc(id).set({
+        categoryId: item.categoryId,
+        description: item.description,
+        image: item.image,
+        price: item.price,
+        stock: item.stock,
+        title: item.title
+    })
+    .then(() => {
+        cart = false
+        console.log("Document successfully written!");
+        window.location.reload(false);
+
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
 
 export async function purchase(){
     //BORRAR COLLECCION ORDERS DE FIREBASE
@@ -57,5 +85,4 @@ export async function purchase(){
     return docRef.get()
     .then(snapshot => {
         return snapshot.docs.map((doc) => (deleteOrder(doc.id)))})
-    
 }

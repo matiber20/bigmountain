@@ -36,13 +36,15 @@ export default function CounterContainer({item}){
         setTotal(suma)    
     }   
 
+    //addToCart deberia crear una lista de objetos
+
     function addToCart(){
         creatOrder({item:{id: inCart, quantity: quantity,price: item.price,...item},buyer:{userId:"Usuario", email: "email@email.com"},total: item.price*quantity})
         setCart(false)
     }
 
 
-           return (
+    return (
             <div>
                 <Display item={item} stock={item.stock} number={number}  />
                 <Counter number={number} item={item} increment={increment} decrement={decrement} addToCart={addToCart} />

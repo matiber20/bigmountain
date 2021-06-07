@@ -18,7 +18,7 @@ export default function CarritoContainer() {
             setCart(data)
             handleLoad(data)})
          .catch((err)=>{console.log(err)})
-     },[])
+     },[setCart])
 
     function handleLoad(e){
     const lista = []
@@ -41,7 +41,8 @@ export default function CarritoContainer() {
     return (
         <div>
             {cart && cart.map((data)=>(<CartList data={data} key={data.id}/>))}
-            {total===0?<p>No hay items en el carrito</p>:<button onClick={handleClick} onLoad={handleLoad}>Finalizar compra ${total}</button>}
+            {total===0?<p>No hay items en el carrito</p>:<><button onClick={handleClick} onLoad={handleLoad}>Finalizar compra ${total}</button>
+            <button onClick={purchase}>Cancelar</button></>}
         </div>
     )
 }
