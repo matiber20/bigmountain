@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../App.css';
-import NavBar from '../../components/NavBar/NavBar';
+import NavBar from '../../components/Navbar/Navbar';
 import LoginContainer from '../../containers/LoginContainer/LoginContainer';
 import ItemListContainer from '../../containers/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer';
